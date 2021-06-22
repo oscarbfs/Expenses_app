@@ -1,11 +1,15 @@
 import 'models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 main() => runApp(Expenses());
 
 class Expenses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Intl.defaultLocale = 'pt_BR';
+    initializeDateFormatting('pt_BR', null);
     return MaterialApp(
       home: MyHomePage(),
     );
@@ -63,7 +67,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        'R\$ ${tr.value.toString()}',
+                        NumberFormat('R\$ #,##0.00', 'pt-BR').format(tr.value),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -82,7 +86,7 @@ class MyHomePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          tr.date.toString(),
+                          DateFormat.yMMMd().format(DateTime.now()),
                           style: TextStyle(
                             color: Colors.grey[600],
                           ),
