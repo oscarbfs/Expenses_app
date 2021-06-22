@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tr.value.toString(),
+                        'R\$ ${tr.value.toString()}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -84,7 +84,6 @@ class MyHomePage extends StatelessWidget {
                         Text(
                           tr.date.toString(),
                           style: TextStyle(
-                            fontSize: 16,
                             color: Colors.grey[600],
                           ),
                         )
