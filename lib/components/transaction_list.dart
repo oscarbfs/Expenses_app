@@ -13,12 +13,13 @@ class TransactionList extends StatelessWidget {
     Intl.defaultLocale = 'pt_BR';
     initializeDateFormatting('pt_BR', null);
     return Container(
-      height: 300,
+      height: 400,
       child: ListView.builder(
         itemCount: transactions.length,
         itemBuilder: (ctx, index) {
           final tr = transactions[index];
           return Card(
+            color: Colors.purple,
             child: Row(
               children: <Widget>[
                 Container(
@@ -28,7 +29,7 @@ class TransactionList extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Colors.purple,
+                      color: Colors.cyanAccent,
                       width: 2,
                     ),
                   ),
@@ -38,7 +39,7 @@ class TransactionList extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
-                      color: Colors.purple,
+                      color: Colors.cyanAccent,
                     ),
                   ),
                 ),
@@ -50,12 +51,13 @@ class TransactionList extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
+                        color: Colors.cyanAccent,
                       ),
                     ),
                     Text(
                       DateFormat.yMMMd().format(DateTime.now()),
                       style: TextStyle(
-                        color: Colors.grey[600],
+                        color: Colors.cyan[300],
                       ),
                     )
                   ],
