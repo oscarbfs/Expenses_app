@@ -22,7 +22,7 @@ class TransactionForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.purple,
+      color: Colors.black,
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.all(10),
@@ -52,7 +52,7 @@ class TransactionForm extends StatelessWidget {
                   child: Text('Nova Transação'),
                   style: ButtonStyle(
                     foregroundColor:
-                        MaterialStateProperty.all<Color>(Colors.purple),
+                        MaterialStateProperty.all<Color>(Color(0xFF8E24AA)),
                   ),
                   onPressed: _submitForm,
                 ),

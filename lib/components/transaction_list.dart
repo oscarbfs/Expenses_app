@@ -19,7 +19,7 @@ class TransactionList extends StatelessWidget {
         itemBuilder: (ctx, index) {
           final tr = transactions[index];
           return Card(
-            color: Colors.purple,
+            color: Colors.black,
             child: Row(
               children: <Widget>[
                 Container(

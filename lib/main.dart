@@ -17,18 +17,20 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.purple,
-          title: Text('Despesas Pessoais',
-              style: TextStyle(color: Colors.cyanAccent))),
+        backgroundColor: Colors.black,
+        title: Text('Despesas Pessoais',
+            style: TextStyle(color: Colors.cyanAccent)),
+        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.add))],
+      ),
       body: Container(
-        color: Colors.black,
+        color: Colors.purple[900],
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Container(
                 child: Card(
-                  color: Colors.purple,
+                  color: Colors.black,
                   child: Text('Gráfico'),
                   elevation: 5,
                 ),
@@ -38,6 +40,11 @@ class MyHomePage extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {},
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
