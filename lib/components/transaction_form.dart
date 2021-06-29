@@ -33,7 +33,7 @@ class TransactionForm extends StatelessWidget {
               onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(
                 labelText: 'Título',
-                labelStyle: TextStyle(color: Colors.cyan, fontSize: 20),
+                labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
               ),
             ),
             TextField(
@@ -42,7 +42,7 @@ class TransactionForm extends StatelessWidget {
               onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(
                 labelText: 'Valor (R\$)',
-                labelStyle: TextStyle(color: Colors.cyan, fontSize: 20),
+                labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
               ),
             ),
             Row(
@@ -52,7 +52,7 @@ class TransactionForm extends StatelessWidget {
                   child: Text('Nova Transação'),
                   style: ButtonStyle(
                     foregroundColor:
-                        MaterialStateProperty.all<Color>(Color(0xFF8E24AA)),
+                        MaterialStateProperty.all<Color>(Colors.purpleAccent),
                   ),
                   onPressed: _submitForm,
                 ),
