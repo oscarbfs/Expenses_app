@@ -43,6 +43,9 @@ class _TransactionFormState extends State<TransactionForm> {
                 decoration: InputDecoration(
                   labelText: 'Título',
                   labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
+                  enabledBorder: new UnderlineInputBorder(
+                    borderSide: new BorderSide(color: Colors.purpleAccent),
+                  ),
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.purpleAccent),
                   ),
@@ -56,6 +59,8 @@ class _TransactionFormState extends State<TransactionForm> {
                 decoration: InputDecoration(
                   labelText: 'Valor (R\$)',
                   labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
+                  enabledBorder: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.purpleAccent)),
                   focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.purpleAccent),
                   ),
