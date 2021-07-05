@@ -14,55 +14,74 @@ class TransactionList extends StatelessWidget {
     initializeDateFormatting('pt_BR', null);
     return Container(
       height: 400,
-      child: ListView.builder(
-        itemCount: transactions.length,
-        itemBuilder: (ctx, index) {
-          final tr = transactions[index];
-          return Card(
-            color: Colors.black,
-            child: Row(
+      child: transactions.isEmpty
+          ? Column(
               children: <Widget>[
+                SizedBox(height: 20),
+                Text(
+                  'Nenhuma Transação Cadastrada',
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                SizedBox(height: 20),
                 Container(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 10,
-                  ),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.cyanAccent,
-                      width: 2,
-                    ),
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Text(
-                    NumberFormat('R\$ #,##0.00', 'pt-BR').format(tr.value),
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      color: Colors.cyanAccent,
-                    ),
+                  height: 200,
+                  child: Image.asset(
+                    'assets/images/waiting.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      tr.title,
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    Text(
-                      DateFormat.yMMMd().format(DateTime.now()),
-                      style: TextStyle(
-                        color: Colors.cyan[300],
-                      ),
-                    )
-                  ],
-                )
               ],
+            )
+          : ListView.builder(
+              itemCount: transactions.length,
+              itemBuilder: (ctx, index) {
+                final tr = transactions[index];
+                return Card(
+                  color: Colors.black,
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.cyanAccent,
+                            width: 2,
+                          ),
+                        ),
+                        padding: EdgeInsets.all(10),
+                        child: Text(
+                          NumberFormat('R\$ #,##0.00', 'pt-BR')
+                              .format(tr.value),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.cyanAccent,
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            tr.title,
+                            style: Theme.of(context).textTheme.headline6,
+                          ),
+                          Text(
+                            DateFormat.yMMMd().format(DateTime.now()),
+                            style: TextStyle(
+                              color: Colors.cyan[300],
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
             ),
-          );
-        },
-      ),
     );
   }
 }
