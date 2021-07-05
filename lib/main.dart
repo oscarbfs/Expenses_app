@@ -15,6 +15,24 @@ class Expenses extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.black,
         buttonColor: Colors.purpleAccent,
+        fontFamily: 'Quicksand',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              headline6: TextStyle(
+                color: Colors.cyanAccent,
+                fontFamily: 'Quicksand',
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+        appBarTheme: AppBarTheme(
+          textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(
+                  fontFamily: 'OpenSans',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+        ),
       ),
     );
   }
@@ -69,8 +87,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Despesas Pessoais',
-            style: TextStyle(color: Colors.cyanAccent)),
+        title: Text(
+          'Despesas Pessoais',
+          style: TextStyle(color: Colors.cyanAccent),
+        ),
         actions: [
           IconButton(
             icon: Icon(Icons.add),
