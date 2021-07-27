@@ -70,7 +70,7 @@ class TransactionList extends StatelessWidget {
                             style: Theme.of(context).textTheme.headline6,
                           ),
                           Text(
-                            DateFormat.yMMMd().format(DateTime.now()),
+                            DateFormat.yMMMd().format(tr.date),
                             style: TextStyle(
                               color: Colors.cyan[300],
                             ),
