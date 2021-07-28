@@ -37,6 +37,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     groupedTransactions;
     return Card(
+      color: Theme.of(context).primaryColor,
       elevation: 6,
       margin: EdgeInsets.all(20),
       child: Row(
@@ -44,7 +45,7 @@ class Chart extends StatelessWidget {
           return ChartBar(
             label: tr['day'].toString(),
             value: double.parse('${tr['value']}'),
-            percentage: 0,
+            percentage: 0.8,
           );
         }).toList(),
       ),
