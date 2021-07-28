@@ -44,7 +44,7 @@ class Chart extends StatelessWidget {
     return Card(
       color: Theme.of(context).primaryColor,
       elevation: 6,
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(10),
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Row(
