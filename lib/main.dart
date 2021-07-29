@@ -27,7 +27,7 @@ class Expenses extends StatelessWidget {
               headline5: TextStyle(
                 color: Colors.cyanAccent,
                 fontFamily: 'Quicksand',
-                fontSize: 15,
+                fontSize: 13,
                 fontWeight: FontWeight.bold,
               ),
             ),
