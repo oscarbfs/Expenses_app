@@ -44,83 +44,90 @@ class _TransactionFormState extends State<TransactionForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.purpleAccent[700],
-      child: Card(
-        color: Colors.black,
-        elevation: 5,
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Column(
-            children: <Widget>[
-              TextField(
-                controller: _titleControler,
-                onSubmitted: (_) => _submitForm(),
-                style: TextStyle(color: Colors.cyanAccent),
-                decoration: InputDecoration(
-                  labelText: 'Título',
-                  labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
-                  enabledBorder: new UnderlineInputBorder(
-                    borderSide: new BorderSide(color: Colors.purpleAccent),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.purpleAccent),
-                  ),
-                ),
-              ),
-              TextField(
-                controller: _valueControler,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                onSubmitted: (_) => _submitForm(),
-                style: TextStyle(color: Colors.cyanAccent),
-                decoration: InputDecoration(
-                  labelText: 'Valor (R\$)',
-                  labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
-                  enabledBorder: new UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.purpleAccent)),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.purpleAccent),
+    return SingleChildScrollView(
+      child: Container(
+        color: Colors.purpleAccent[700],
+        child: Card(
+          color: Colors.black,
+          elevation: 5,
+          child: Padding(
+            padding: EdgeInsets.only(
+                top: 10,
+                right: 10,
+                left: 10,
+                bottom: 10 + MediaQuery.of(context).viewInsets.bottom),
+            child: Column(
+              children: <Widget>[
+                TextField(
+                  controller: _titleControler,
+                  onSubmitted: (_) => _submitForm(),
+                  style: TextStyle(color: Colors.cyanAccent),
+                  decoration: InputDecoration(
+                    labelText: 'Título',
+                    labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
+                    enabledBorder: new UnderlineInputBorder(
+                      borderSide: new BorderSide(color: Colors.purpleAccent),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.purpleAccent),
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                height: 70,
-                child: Row(
+                TextField(
+                  controller: _valueControler,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  onSubmitted: (_) => _submitForm(),
+                  style: TextStyle(color: Colors.cyanAccent),
+                  decoration: InputDecoration(
+                    labelText: 'Valor (R\$)',
+                    labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
+                    enabledBorder: new UnderlineInputBorder(
+                        borderSide: new BorderSide(color: Colors.purpleAccent)),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.purpleAccent),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 70,
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          _selectedDate == null
+                              ? 'Nenhuma data selecionada!'
+                              : 'Data Selecionada: ${DateFormat('dd/MM/y').format(_selectedDate)}',
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                      ),
+                      TextButton(
+                        child: Text(
+                          'Selecionar data',
+                          style:
+                              TextStyle(color: Theme.of(context).buttonColor),
+                        ),
+                        onPressed: _showDatePicker,
+                      )
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Expanded(
-                      child: Text(
-                        _selectedDate == null
-                            ? 'Nenhuma data selecionada!'
-                            : 'Data Selecionada: ${DateFormat('dd/MM/y').format(_selectedDate)}',
-                        style: Theme.of(context).textTheme.headline5,
+                    ElevatedButton(
+                      child: Text('Nova Transação'),
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Theme.of(context).buttonColor),
+                        foregroundColor: MaterialStateProperty.all<Color>(
+                            Theme.of(context).primaryColor),
                       ),
+                      onPressed: _submitForm,
                     ),
-                    TextButton(
-                      child: Text(
-                        'Selecionar data',
-                        style: TextStyle(color: Theme.of(context).buttonColor),
-                      ),
-                      onPressed: _showDatePicker,
-                    )
                   ],
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  ElevatedButton(
-                    child: Text('Nova Transação'),
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                          Theme.of(context).buttonColor),
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                          Theme.of(context).primaryColor),
-                    ),
-                    onPressed: _submitForm,
-                  ),
-                ],
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
