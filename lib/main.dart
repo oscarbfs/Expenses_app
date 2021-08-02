@@ -94,13 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _getIconButtom(IconData icon, Function fn) {
+  Widget _getIconButtom(IconData icon, Function() fn) {
     return Platform.isIOS
         ? GestureDetector(onTap: () => fn, child: Icon(icon))
         : IconButton(
             icon: Icon(icon),
             color: Theme.of(context).buttonColor,
-            onPressed: () => fn,
+            onPressed: fn,
           );
   }
 
