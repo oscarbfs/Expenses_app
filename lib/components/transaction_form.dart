@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'adaptative_button.dart';
+import 'adaptative_text_field.dart';
 
 class TransactionForm extends StatefulWidget {
   final void Function(String, double, DateTime) onSubmit;
@@ -59,35 +60,15 @@ class _TransactionFormState extends State<TransactionForm> {
                 bottom: 10 + MediaQuery.of(context).viewInsets.bottom),
             child: Column(
               children: <Widget>[
-                TextField(
+                AdaptativeTextField(
+                  label: 'Título',
                   controller: _titleControler,
                   onSubmitted: (_) => _submitForm(),
-                  style: TextStyle(color: Colors.cyanAccent),
-                  decoration: InputDecoration(
-                    labelText: 'Título',
-                    labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
-                    enabledBorder: new UnderlineInputBorder(
-                      borderSide: new BorderSide(color: Colors.purpleAccent),
-                    ),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.purpleAccent),
-                    ),
-                  ),
                 ),
-                TextField(
+                AdaptativeTextField(
+                  label: 'Valor (R\$)',
                   controller: _valueControler,
-                  keyboardType: TextInputType.numberWithOptions(decimal: true),
                   onSubmitted: (_) => _submitForm(),
-                  style: TextStyle(color: Colors.cyanAccent),
-                  decoration: InputDecoration(
-                    labelText: 'Valor (R\$)',
-                    labelStyle: TextStyle(color: Colors.purple, fontSize: 20),
-                    enabledBorder: new UnderlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.purpleAccent)),
-                    focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.purpleAccent),
-                    ),
-                  ),
                 ),
                 Container(
                   height: 70,
