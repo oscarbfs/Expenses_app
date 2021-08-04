@@ -22,7 +22,7 @@ class AdaptativeTextField extends StatelessWidget {
             ),
             child: CupertinoTextField(
               controller: controller,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
               onSubmitted: onSubmitted,
               placeholder: label,
               style: TextStyle(color: Colors.cyanAccent),
@@ -34,7 +34,7 @@ class AdaptativeTextField extends StatelessWidget {
           )
         : TextField(
             controller: controller,
-            keyboardType: TextInputType.text,
+            keyboardType: TextInputType.numberWithOptions(decimal: true),
             onSubmitted: onSubmitted,
             style: TextStyle(color: Colors.cyanAccent),
             decoration: InputDecoration(
